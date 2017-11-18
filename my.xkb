@@ -1178,8 +1178,7 @@ xkb_compatibility "complete" {
 
 xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
 
-    name[group1]="English (international AltGr dead keys)";
-    name[group2]="English (US, international with dead keys)";
+    name[group1]="Lejboua English (international AltGr dead keys)";
 
     key  <ESC> {         [          Escape ] };
     key <AE01> {
@@ -1250,7 +1249,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
     };
     key <AD05> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               t,               T,           thorn,           THORN ]
+        symbols[Group1]= [               t,               T,           grave,           THORN ]
     };
     key <AD06> {
         type= "FOUR_LEVEL_ALPHABETIC",
@@ -1300,7 +1299,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
     };
     key <AC05> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               g,               G,               g,               G ]
+        symbols[Group1]= [               g,               G,      asciitilde,               G ]
     };
     key <AC06> {
         type= "FOUR_LEVEL_ALPHABETIC",
@@ -1353,7 +1352,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
     };
     key <AB05> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               b,               B,               b,               B ]
+        symbols[Group1]= [               b,               B,     asciicircum,               B ]
     };
     key <AB06> {
         type= "FOUR_LEVEL_ALPHABETIC",
