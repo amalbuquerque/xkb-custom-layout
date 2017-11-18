@@ -13,7 +13,7 @@ NOTES
 
 First created the `my_map` with:
 
- - setxkbmap -layout us -variant altgr-intl -model pc105 -option caps:ctrl_modifier -print > my_map
+ - setxkbmap -layout us -variant altgr-intl -model pc104 -option caps:ctrl_modifier -print > my_map
 
 Then created the `symbols` folder and the `accents` config file (it can have any name) and added my changes to it (to have immediate backtick, tilde and circumflex on AltGr+T|G|B, respectively).
 
@@ -25,4 +25,4 @@ To apply it use:
 
 To reset the keyboard layout:
 
- - setxkbmap -layout us -variant altgr-intl -model pc105 -option caps:ctrl_modifier
+ - setxkbmap -layout us -variant altgr-intl -model pc104 -option caps:ctrl_modifier

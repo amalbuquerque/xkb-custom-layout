@@ -1178,7 +1178,7 @@ xkb_compatibility "complete" {
 
 xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
 
-    name[group1]="Lejboua English (international AltGr dead keys)";
+    name[group1]="English (international AltGr dead keys)";
 
     key  <ESC> {         [          Escape ] };
     key <AE01> {
@@ -1625,7 +1625,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(ctrl_modifier)" {
     modifier_map Mod4 { <HYPR> };
 };
 
-xkb_geometry "pc(pc105)" {
+xkb_geometry "pc(pc104)" {
 
     width=       470;
     height=      180;
@@ -1636,7 +1636,7 @@ xkb_geometry "pc(pc105)" {
     baseColor=   "white";
     labelColor=  "black";
     xfont=       "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-1";
-    description= "Generic 105";
+    description= "Generic 104";
 
     shape "NORM" {
         corner= 1,
@@ -1660,11 +1660,8 @@ xkb_geometry "pc(pc105)" {
     };
     shape "RTRN" {
         corner= 1,
-        { [   0,   0 ], [  28,   0 ], [  28,  37 ], [   5,  37 ],
-          [   5,  18 ], [   0,  18 ] },
-        { [   2,   1 ], [  26,   1 ], [  26,  35 ], [   7,  35 ],
-          [   7,  16 ], [   2,  16 ] },
-        approx= { [   5,   0 ], [  28,  37 ] }
+        { [  42,  18 ] },
+        { [   2,   1 ], [  40,  16 ] }
     };
     shape "CAPS" {
         corner= 1,
@@ -1673,13 +1670,13 @@ xkb_geometry "pc(pc105)" {
     };
     shape "LFSH" {
         corner= 1,
-        { [  25,  18 ] },
-        { [   2,   1 ], [  23,  16 ] }
+        { [  42,  18 ] },
+        { [   2,   1 ], [  40,  16 ] }
     };
     shape "RTSH" {
         corner= 1,
-        { [  50,  18 ] },
-        { [   2,   1 ], [  48,  16 ] }
+        { [  52,  18 ] },
+        { [   2,   1 ], [  50,  16 ] }
     };
     shape "MODK" {
         corner= 1,
@@ -1771,7 +1768,7 @@ xkb_geometry "pc(pc105)" {
                 { <AD07>, "NORM",   1 }, { <AD08>, "NORM",   1 },
                 { <AD09>, "NORM",   1 }, { <AD10>, "NORM",   1 },
                 { <AD11>, "NORM",   1 }, { <AD12>, "NORM",   1 },
-                { <RTRN>, "RTRN",   1, color="grey20" }
+                { <BKSL>, "BKSL",   1 }
             };
         };
         row {
@@ -1784,7 +1781,8 @@ xkb_geometry "pc(pc105)" {
                 { <AC05>, "NORM",   1 }, { <AC06>, "NORM",   1 },
                 { <AC07>, "NORM",   1 }, { <AC08>, "NORM",   1 },
                 { <AC09>, "NORM",   1 }, { <AC10>, "NORM",   1 },
-                { <AC11>, "NORM",   1 }, { <BKSL>, "NORM",   1 }
+                { <AC11>, "NORM",   1 },
+                { <RTRN>, "RTRN",   1, color="grey20" }
             };
         };
         row {
@@ -1792,12 +1790,11 @@ xkb_geometry "pc(pc105)" {
             left= 1;
             keys {
                 { <LFSH>, "LFSH",   1, color="grey20" },
-                { <LSGT>, "NORM",   1 }, { <AB01>, "NORM",   1 },
-                { <AB02>, "NORM",   1 }, { <AB03>, "NORM",   1 },
-                { <AB04>, "NORM",   1 }, { <AB05>, "NORM",   1 },
-                { <AB06>, "NORM",   1 }, { <AB07>, "NORM",   1 },
-                { <AB08>, "NORM",   1 }, { <AB09>, "NORM",   1 },
-                { <AB10>, "NORM",   1 },
+                { <AB01>, "NORM",   1 }, { <AB02>, "NORM",   1 },
+                { <AB03>, "NORM",   1 }, { <AB04>, "NORM",   1 },
+                { <AB05>, "NORM",   1 }, { <AB06>, "NORM",   1 },
+                { <AB07>, "NORM",   1 }, { <AB08>, "NORM",   1 },
+                { <AB09>, "NORM",   1 }, { <AB10>, "NORM",   1 },
                 { <RTSH>, "RTSH",   1, color="grey20" }
             };
         };
