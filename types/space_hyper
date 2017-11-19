@@ -1,9 +1,9 @@
 partial
 xkb_types "hyper" {
-    virtual_modifiers Alt,Hyper;
+    virtual_modifiers LevelThree,Alt,Hyper;
 
     type "HYPER" {
-        modifiers= Shift+Control+Alt+Hyper;
+        modifiers= LevelThree+Shift+Control+Alt+Hyper;
 
         map[Shift]= Level2;
 
@@ -48,8 +48,11 @@ xkb_types "hyper" {
         map[Shift+Control+Alt+Hyper] = Level3;
         preserve[Shift+Control+Alt+Hyper] = Shift+Control+Alt;
 
+        map[LevelThree] = Level4;
+
         level_name[Level1]= "Base";
         level_name[Level2]= "Shift";
         level_name[Level3]= "Hyper";
+        level_name[Level4]= "AltGr";
     };
 };

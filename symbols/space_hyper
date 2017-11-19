@@ -1,18 +1,24 @@
 partial modifier_keys
 xkb_symbols "space_hyper" {
-    # Currently using PrintScreen as a Hyper
-    replace key <PRSC> {
+    # We have to keep space somewhere!
+    replace key <FK18> {
+        [ space ]
+    };
+
+    # Now physical SPCE only sends Hyper
+    replace key <SPCE> {
         [ Hyper_R ]
     };
+    # It will then send Space when tapped with xcape
 
     # Remove Hyper (Hyper_L/Hyper_R) from Mod4, was added by "pc" layout
     modifier_map none { <HYPR> };
 
-    # Now make physical PrintScreen above (mapped to Hyper_R above) control Mod3. Mod3 is
+    # Now make physical SPCE above (mapped to Hyper_R above) control Mod3. Mod3 is
     # associated with the virtual modifier "Hyper" because the existing XKB config
     # links Hyper_L and Hyper_R with this virtual modifier.  Therefore Mod3 becomes
     # the virtual modifier "Hyper" because they both share the same keysym Hyper_R.
-    modifier_map Mod3 { <PRSC> };
+    modifier_map Mod3 { <SPCE> };
 
     key <AC06> {
         type= "HYPER",

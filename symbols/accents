@@ -1,15 +1,15 @@
 partial alphanumeric_keys
 xkb_symbols "accents"  {
     key <AD05> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ t, T, grave, THORN ]
+        type= "HYPER",
+        symbols[Group1]= [ t, T, dead_grave, grave ]
     };
     key <AC05> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ g, G, asciitilde, G ]
+        type= "HYPER",
+        symbols[Group1]= [ g, G, dead_tilde, asciitilde ]
     };
     key <AB05> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ b, B, asciicircum, B ]
+        type= "HYPER",
+        symbols[Group1]= [ b, B, dead_circumflex, asciicircum ]
     };
 };
