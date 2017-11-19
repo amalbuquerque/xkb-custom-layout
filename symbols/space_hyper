@@ -82,7 +82,7 @@ xkb_symbols "space_hyper" {
     };
     key <AB04> {
         type= "HYPER",
-        symbols[Group1]= [ v, V, XF86AudioPause, registered ]
+        symbols[Group1]= [ v, V, XF86AudioPlay, registered ]
     };
     key <AC02> {
         type= "HYPER",

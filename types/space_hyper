@@ -48,6 +48,8 @@ xkb_types "hyper" {
         map[Shift+Control+Alt+Hyper] = Level3;
         preserve[Shift+Control+Alt+Hyper] = Shift+Control+Alt;
 
+        # interprets ISO_Level3_Shift
+        # like LevelThree virtual modifier
         map[LevelThree] = Level4;
 
         level_name[Level1]= "Base";
