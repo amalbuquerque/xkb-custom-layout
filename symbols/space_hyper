@@ -20,6 +20,8 @@ xkb_symbols "space_hyper" {
     # the virtual modifier "Hyper" because they both share the same keysym Hyper_R.
     modifier_map Mod3 { <SPCE> };
 
+    # symbols[Group1]= [ no_modifier, with_shift, with_space, with_AltGr ]
+    # SpaceFn Navigation cluster
     key <AC06> {
         type= "HYPER",
         symbols[Group1]= [ h, H, Left, Left ]
@@ -35,5 +37,59 @@ xkb_symbols "space_hyper" {
     key <AC09> {
         type= "HYPER",
         symbols[Group1]= [ l, L, Right, Right ]
+    };
+    key <AD07> {
+        type= "HYPER",
+        symbols[Group1]= [ u, U, Home, uacute ]
+    };
+    key <AB06> {
+        type= "HYPER",
+        symbols[Group1]= [ n, N, End, ntilde ]
+    };
+    key <AB07> {
+        type= "HYPER",
+        symbols[Group1]= [ m, M, Delete, mu ]
+    };
+    key <AB08> {
+        type= "HYPER",
+        symbols[Group1]= [ comma, less, Insert, ccedilla ]
+    };
+    key <AB09> {
+        type= "HYPER",
+        symbols[Group1]= [ period, greater, Prior, dead_caron ]
+    };
+    key <AB10> {
+        type= "HYPER",
+        symbols[Group1]= [ slash, question, Next, questiondown ]
+    };
+    key <AC10> {
+        type= "HYPER",
+        symbols[Group1]= [ semicolon, colon, BackSpace, degree ]
+    };
+
+    # SpaceFn Media cluster
+    key <AB01> {
+        type= "HYPER",
+        symbols[Group1]= [ z, Z, XF86AudioLowerVolume, ae ]
+    };
+    key <AB02> {
+        type= "HYPER",
+        symbols[Group1]= [ x, X, XF86AudioRaiseVolume, oe ]
+    };
+    key <AB03> {
+        type= "HYPER",
+        symbols[Group1]= [ c, C, XF86AudioMute, cent ]
+    };
+    key <AB04> {
+        type= "HYPER",
+        symbols[Group1]= [ v, V, XF86AudioPause, registered ]
+    };
+    key <AC02> {
+        type= "HYPER",
+        symbols[Group1]= [ s, S, XF86AudioPrev, section ]
+    };
+    key <AC03> {
+        type= "HYPER",
+        symbols[Group1]= [ d, D, XF86AudioNext, eth ]
     };
 };

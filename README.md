@@ -32,9 +32,22 @@ USEFUL RESOURCES
 
  - From where I took the approach of only customizing a subset of stuff: https://a3nm.net/blog/xkbcomp.html
  - Unix Stackexchange question about how to assign a new shift level to Fn1-12, placed me in the right HYPER direction: https://unix.stackexchange.com/questions/155797/xkb-assign-a-new-shift-level-to-function-keys
+ - Cool Medium article: https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-linux-6f1ad5e13450
+ - How to create a custom selectable layout blog post: http://rlog.rgtti.com/2014/05/01/how-to-modify-a-keyboard-layout-in-linux/
+ - An article that goes to great detail to explain how xkb works: https://www.charvolant.org/doug/xkb/html/node5.html
+ - Arch linux comprehensive documentation on xkb: https://wiki.archlinux.org/index.php/X_KeyBoard_extension
 
 RUNNING XCAPE TO ACHIEVE SPACEFN
 --------------------------------
 
 Running xcape with the following allows me to use Space as Hyper (if the Space physical key is sending the Hyper):
- - xcape -f -t 100 -e 'Hyper_R=space;Shift_L=Escape;Shift_R=Delete'
+ - xcape -f -t 150 -e 'Hyper_R=space;Shift_L=Escape;Shift_R=Delete'
+ - After trial and error, 150 feels like the appropriate timeout
+
+PROBLEMS
+--------
+
+1. Apparently, some of the SpaceFN mappings don't work inside Alacritty :(
+    * arrows, home, end don't work
+    * backspace, delete work
+2. XF86Audio\* keycodes are sent but don't do a thing
