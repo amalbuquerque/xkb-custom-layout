@@ -1,0 +1,55 @@
+partial
+xkb_types "hyper" {
+    virtual_modifiers Alt,Hyper;
+
+    type "HYPER" {
+        modifiers= Shift+Control+Alt+Hyper;
+
+        map[Shift]= Level2;
+
+        map[Control]= Level1;
+        preserve[Control]= Control;
+
+        map[Shift+Control]= Level2;
+        preserve[Shift+Control]= Control;
+
+        map[Alt]= Level1;
+        preserve[Alt]= Alt;
+
+        map[Shift+Alt]= Level2;
+        preserve[Shift+Alt]= Alt;
+
+        map[Control+Alt]= Level1;
+        preserve[Control+Alt]= Control+Alt;
+
+        map[Shift+Control+Alt]= Level2;
+        preserve[Shift+Control+Alt]= Control+Alt;
+
+        map[Hyper]= Level3;
+
+        map[Shift+Hyper] = Level3;
+        preserve[Shift+Hyper] = Shift;
+
+        map[Control+Hyper] = Level3;
+        preserve[Control+Hyper] = Control;
+
+        map[Shift+Control+Hyper] = Level3;
+        preserve[Shift+Control+Hyper] = Shift+Control;
+
+        map[Alt+Hyper] = Level3;
+        preserve[Alt+Hyper] = Alt;
+
+        map[Shift+Alt+Hyper] = Level3;
+        preserve[Shift+Alt+Hyper] = Shift+Alt;
+
+        map[Control+Alt+Hyper] = Level3;
+        preserve[Control+Alt+Hyper] = Control+Alt;
+
+        map[Shift+Control+Alt+Hyper] = Level3;
+        preserve[Shift+Control+Alt+Hyper] = Shift+Control+Alt;
+
+        level_name[Level1]= "Base";
+        level_name[Level2]= "Shift";
+        level_name[Level3]= "Hyper";
+    };
+};

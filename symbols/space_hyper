@@ -1,0 +1,33 @@
+partial modifier_keys
+xkb_symbols "space_hyper" {
+    # Currently using PrintScreen as a Hyper
+    replace key <PRSC> {
+        [ Hyper_R ]
+    };
+
+    # Remove Hyper (Hyper_L/Hyper_R) from Mod4, was added by "pc" layout
+    modifier_map none { <HYPR> };
+
+    # Now make physical PrintScreen above (mapped to Hyper_R above) control Mod3. Mod3 is
+    # associated with the virtual modifier "Hyper" because the existing XKB config
+    # links Hyper_L and Hyper_R with this virtual modifier.  Therefore Mod3 becomes
+    # the virtual modifier "Hyper" because they both share the same keysym Hyper_R.
+    modifier_map Mod3 { <PRSC> };
+
+    key <AC06> {
+        type= "HYPER",
+        symbols[Group1]= [ h, H, Left, Left ]
+    };
+    key <AC07> {
+        type= "HYPER",
+        symbols[Group1]= [ j, J, Down, Down ]
+    };
+    key <AC08> {
+        type= "HYPER",
+        symbols[Group1]= [ k, K, Up, Up ]
+    };
+    key <AC09> {
+        type= "HYPER",
+        symbols[Group1]= [ l, L, Right, Right ]
+    };
+};

@@ -26,3 +26,15 @@ To apply it use:
 To reset the keyboard layout:
 
  - setxkbmap -layout us -variant altgr-intl -model pc104 -option caps:ctrl_modifier
+
+USEFUL RESOURCES
+----------------
+
+ - From where I took the approach of only customizing a subset of stuff: https://a3nm.net/blog/xkbcomp.html
+ - Unix Stackexchange question about how to assign a new shift level to Fn1-12, placed me in the right HYPER direction: https://unix.stackexchange.com/questions/155797/xkb-assign-a-new-shift-level-to-function-keys
+
+RUNNING XCAPE TO ACHIEVE SPACEFN
+--------------------------------
+
+Running xcape with the following allows me to use Space as Hyper (if the Space physical key is sending the Hyper):
+ - xcape -f -t 100 -e 'Hyper_R=space;Shift_L=Escape;Shift_R=Delete'
