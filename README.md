@@ -41,8 +41,8 @@ RUNNING XCAPE TO ACHIEVE SPACEFN
 --------------------------------
 
 Running xcape with the following allows me to use Space as Hyper (if the Space physical key is sending the Hyper):
- - xcape -f -t 150 -e 'Hyper_R=space;Shift_L=Escape;Shift_R=Delete'
- - After trial and error, 150 feels like the appropriate timeout
+ - xcape -f -t 140 -e 'Hyper_R=space;Shift_L=Escape;Shift_R=Delete'
+ - After trial and error, 140 feels like the appropriate timeout
 
 PROBLEMS
 --------
