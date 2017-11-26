@@ -1,0 +1,73 @@
+partial alphanumeric_keys
+xkb_symbols "neo_lx" {
+    include "de(neo_qwerty_base)"
+
+    // Example:
+    // key <XPTO> { [ None, Shift,   RAlt, Shift+RAlt,     SpaceFn, Shift+SpaceFn,     RAlt+SpaceFn, Shift+RAlt+SpaceFn      ] }
+
+    key.type[Group1] = "EIGHT_LEVEL_ALPHABETIC_LEVEL_FIVE_LOCK";
+
+    // Tab as Multi_key (Compose)
+    // --------------------------------------------------------------
+    key  <TAB> { [ Tab,  ISO_Left_Tab,   NoSymbol,  NoSymbol,    Multi_key,   ISO_Level5_Lock,   NoSymbol,   ISO_Level5_Lock  ] };
+
+    // Number row
+    // --------------------------------------------------------------
+    key <TLDE> { [ dead_grave, dead_tilde,  NoSymbol,       NoSymbol,     grave,                asciitilde,     NoSymbol,    NoSymbol ] };
+
+    key <AE01> { [ 1,          exclam,      degree,         masculine,    onesuperior,          onesubscript,   notsign,     NoSymbol ] };
+    key <AE02> { [ 2,          at,          ordfeminine,    femalesymbol, twosuperior,          twosubscript,   logicalor,   NoSymbol ] };
+    key <AE03> { [ 3,          numbersign,  numerosign,     NoSymbol,     threesuperior,        threesubscript, logicaland,  NoSymbol ] };
+    key <AE04> { [ 4,          dollar,      NoSymbol,       NoSymbol,     U203A,                femalesymbol,   U22A5,       NoSymbol ] };
+    key <AE05> { [ 5,          percent,     EuroSign,       NoSymbol,     U2039,                malesymbol,     U2221,       NoSymbol ] };
+    key <AE06> { [ 6,          asciicircum, sterling,       NoSymbol,     cent,                 U26A5,          U2225,       NoSymbol ] };
+    key <AE07> { [ 7,          ampersand,   currency,       NoSymbol,     yen,                  U03F0,          rightarrow,  NoSymbol ] };
+    key <AE08> { [ 8,          asterisk,    Tab,            ISO_Left_Tab, singlelowquotemark,   U27E8,          U221E,       NoSymbol ] };
+    key <AE09> { [ 9,          parenleft,   KP_Divide,      KP_Divide,    leftsinglequotemark,  U27E9,          variation,   NoSymbol ] };
+    key <AE10> { [ 0,          parenright,  KP_Multiply,    KP_Multiply,  rightsinglequotemark, zerosubscript,  emptyset,    NoSymbol ] };
+    key <AE11> { [ minus,      underscore,  KP_Subtract,    KP_Subtract,  emdash,               U2011,          hyphen,      NoSymbol ] };
+    key <AE12> { [ equal,      plus,        dead_diaeresis, NoSymbol,     dead_abovering,       dead_dasia,     dead_macron, NoSymbol ] };
+
+    // Top row
+    // --------------------------------------------------------------
+    key <AD01> { [ q,            Q,          Prior,            Prior,      ellipsis,    Greek_xi,              Greek_XI,   NoSymbol          ] };
+    key <AD02> { [ w,            W,          BackSpace,        BackSpace,  underscore,  NoSymbol,              radical,    NoSymbol          ] };
+    key <AD03> { [ e,            E,          eacute,           Eacute,     Escape,      Greek_epsilon,         U2203,      NoSymbol          ] };
+    key <AD04> { [ r,            R,          KP_5,             KP_5,       parenright,  Greek_rho,             U211D,      NoSymbol          ] };
+    key <AD05> { [ t,            T,          grave,            minus,      dead_grave,  dead_grave,            Greek_tau,  partialderivative ] };
+    key <AD06> { [ y,            Y,          period,           KP_Decimal, at,          Greek_upsilon,         nabla,      NoSymbol          ] };
+    key <AD07> { [ u,            U,          uacute,           Uacute,     Home,        Home,                  includedin, NoSymbol          ] };
+    key <AD08> { [ i,            I,          iacute,           Iacute,     Insert,      Insert,                integral,   Greek_iota        ] };
+    key <AD09> { [ o,            O,          oacute,           Oacute,     Scroll_Lock, Greek_omicron,         elementof,  NoSymbol          ] };
+    key <AD10> { [ p,            P,          Greek_pi,         Greek_PI,   Print,       Return,                NoSymbol,   NoSymbol          ] };
+    key <AD11> { [ bracketleft,  braceleft,  U2212,            NoSymbol,   U017F,       Greek_finalsmallsigma, jot,        NoSymbol          ] };
+    key <AD12> { [ bracketright, braceright, dead_doubleacute, NoSymbol,   dead_stroke, dead_psili,            dead_breve, NoSymbol          ] };
+    key <BKSL> { [ backslash,    bar,        NoSymbol,         NoSymbol,   NoSymbol,    NoSymbol,              NoSymbol,   NoSymbol          ] };
+
+    // Middle row
+    // --------------------------------------------------------------
+    key <AC01> { [ a,          A,        aacute,       Aacute,       braceleft,          Greek_alpha,   U2200,        NoSymbol    ] };
+    key <AC02> { [ s,          S,        Greek_sigma,  Greek_SIGMA,  XF86AudioPrev,      XF86AudioPrev, questiondown, NoSymbol    ] };
+    key <AC03> { [ d,          D,        Greek_delta,  Greek_DELTA,  XF86AudioNext,      XF86AudioNext, KP_Separator, NoSymbol    ] };
+    key <AC04> { [ f,          F,        KP_9,         KP_9,         equal,              Greek_phi,     Greek_PHI,    NoSymbol    ] };
+    key <AC05> { [ g,          G,        asciitilde,   greater,      dead_tilde,         dead_tilde,    reek_gamma,   Greek_GAMMA ] };
+    key <AC06> { [ h,          H,        less,         Greek_psi,    Left,               Left,          Greek_PSI,    NoSymbol    ] };
+    key <AC07> { [ j,          J,        Greek_theta,  Greek_THETA,  Down,               Down,          semicolon,    NoSymbol    ] };
+    key <AC08> { [ k,          K,        Greek_kappa,  exclamdown,   Up,                 Up,            multiply,     NoSymbol    ] };
+    key <AC09> { [ l,          L,        Greek_lambda, Greek_LAMBDA, Right,              Right,         NoSymbol,     NoSymbol    ] };
+    key <AC10> { [ semicolon,  colon,    Greek_theta,  Greek_THETA,  BackSpace,          BackSpace,     NoSymbol,     NoSymbol    ] };
+    key <AC11> { [ apostrophe, quotedbl, KP_3,         KP_3,         enfilledcircbullet, U03D1,         U21A6,        NoSymbol    ] };
+
+    // Bottom row
+    // --------------------------------------------------------------
+    key <AB01> { [ z,      Z,        grave,              Greek_zeta, XF86AudioLowerVolume, Undo,            U2124,                 NoSymbol ] };
+    key <AB02> { [ x,      X,        Greek_xi,           Greek_XI,   XF86AudioRaiseVolume, ellipsis,        NoSymbol,              NoSymbol ] };
+    key <AB03> { [ c,      C,        ccedilla,           Ccedilla,   Greek_chi,            XF86AudioMute,   XF86AudioMute,         U2102    ] };
+    key <AB04> { [ v,      V,        underscore,         NoSymbol,   XF86AudioPlay,        XF86AudioPause,  radical,               NoSymbol ] };
+    key <AB05> { [ b,      B,        asciicircum,        Greek_beta, dead_circumflex,      dead_circumflex, colon,                 U21D0    ] };
+    key <AB06> { [ n,      N,        Greek_nu,           U2115,      End,                  End,             NoSymbol,              NoSymbol ] };
+    key <AB07> { [ m,      M,        percent,            Greek_mu,   Delete,               Delete,          ifonlyif,              NoSymbol ] };
+    key <AB08> { [ comma,  less,     ccedilla,           endash,     Insert,               Insert,          U03F1,                 U21D2    ] };
+    key <AB09> { [ period, greater,  enfilledcircbullet, apostrophe, Prior,                Prior,           U03D1,                 U21A6    ] };
+    key <AB10> { [ slash,  question, U1E9E,              U017F,      Next,                 Next,            Greek_finalsmallsigma, U2212    ] };
+};

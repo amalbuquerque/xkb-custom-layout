@@ -1,3 +1,14 @@
+UPDATE 2017/11/26:
+==================
+
+- `xcape` wasn't working that well (while writing fast, space would activate the Fn-layer instead of just sending Space);
+- Tried a `spacefn.cpp` program from `Pro XKB`, a fellow Geekhack user sent me after reading his inputs about the topic, and it worked flawlessly! It needed a layout with Level 5, therefore I exported the German Neo layout (https://neo-layout.org/index_en.html) that had the needed Level 5 and started plugging my own layout on top of it (ANSI-US with some tweaks for having common portuguese accents+characters and also my long-wished-for SpaceFn).
+- To compile `spacefn.cpp`, use the Dockerfile to run a container with the needed dependencies and follow the comments on the source file.
+- Then to use it:
+  1. Apply the `neo_lx` layout (adjust the paths): `xkbcomp -I$HOME/projs/personal/xkb_spike ~/projs/personal/xkb_spike/neo_map :0`
+  2. Run the `spacefn` after mapping `space` to the unused keycode: `xmodmap -e "keycode 202 = space" -e "keycode 65 =" ; ~/projs/personal/spacefn_xkb/spacefn &`
+
+
 NOTES
 =====
 
