@@ -73,6 +73,23 @@ const int MODIFIER_DELAY = 5;
 
 // End of adjustable values
 
+// 2017/12/01 12:03:35, AA: From https://stackoverflow.com/questions/28746744/passing-lambda-as-function-pointer
+// OT => Object Type
+// RT => Return Type
+// A ... => Arguments
+template<typename OT, typename RT, typename ... A>
+struct lambda_expression {
+    OT _object;
+    RT(OT::*_function)(A...)const;
+
+    lambda_expression(const OT & object)
+        : _object(object), _function(&decltype(_object)::operator()) {}
+
+    RT operator() (A ... args) const {
+        return (_object.*_function)(args...);
+    }
+};
+
 
 enum { N = 2 };
 KeyCode pressed[N] = { 0, 0 } , released[N] = { 0, 0 };
@@ -81,72 +98,72 @@ Time presstime[N] = { 0, 0 }, releasetime[N] = { 0, 0 };
 bool mod_set = false, symbol_down = false;
 int delay = -1;
 
-void callback(XPointer priv, XRecordInterceptData *id){
-  if(id->category == XRecordFromServer) {
-    xEvent* xe = (xEvent*)id->data;
-    int num = id->data_len/8;
-    Time now = id->server_time;
+auto create_callback(Time symbol_timeout, Time symbol_hold_timeout, int modifier_delay, int modifier_mask, int tracked_keycode, int symbol_keycode){
 
-    while(num){
-      const int type        = xe->u.u.type;
-      const KeyCode keycode = xe->u.u.detail;
-      Display* dpy = (Display*)priv;
+    auto to_return = [=](XPointer priv, XRecordInterceptData *id){
+        if(id->category == XRecordFromServer) {
+            xEvent* xe = (xEvent*)id->data;
+            int num = id->data_len/8;
+            Time now = id->server_time;
 
-      if(type == KeyPress){
-        switch(keycode){
-          case TRACKED_KEYCODE:
-            if(pressed[N-2] == TRACKED_KEYCODE &&
-                pressed[N-1] == SYMBOL_KEYCODE &&
-                now-presstime[N-2] < SYMBOL_HOLD_TIMEOUT){
-              XTestFakeKeyEvent(dpy, SYMBOL_KEYCODE, True,  CurrentTime);
-              symbol_down = true;
-            }else{
-              delay = MODIFIER_DELAY;
+            while(num){
+                const int type        = xe->u.u.type;
+                const KeyCode keycode = xe->u.u.detail;
+                Display* dpy = (Display*)priv;
+
+                if(type == KeyPress){
+                    if(keycode == tracked_keycode){
+                        if(pressed[N-2] == tracked_keycode &&
+                                pressed[N-1] == symbol_keycode &&
+                                now-presstime[N-2] < symbol_hold_timeout){
+                            XTestFakeKeyEvent(dpy, symbol_keycode, True,  CurrentTime);
+                            symbol_down = true;
+                        }else{
+                            delay = modifier_delay;
+                        }
+                    }
+
+                    for(int i = 1; i < N; ++i){
+                        pressed[i-1] = pressed[i];
+                        presstime[i-1] = presstime[i];
+                    }
+                    pressed[N-1] = keycode;
+                    presstime[N-1] = now;
+                }else if(type == KeyRelease){
+                    if (keycode == tracked_keycode){
+                        if(symbol_down){
+                            XTestFakeKeyEvent(dpy, symbol_keycode, False, CurrentTime);
+                            symbol_down = false;
+                        }
+                        if(mod_set){
+                            XkbLockModifiers(dpy, XkbUseCoreKbd, modifier_mask, 0);
+                            mod_set = false;
+                        }
+                        if(keycode == pressed[N-1]){
+                            if(now-presstime[N-1] < symbol_timeout){
+                                XTestFakeKeyEvent(dpy, symbol_keycode, True,  CurrentTime);
+                                XTestFakeKeyEvent(dpy, symbol_keycode, False, CurrentTime);
+                            }
+                        }
+                    }
+
+                    for(int i = 1; i < N; ++i){
+                        released[i-1] = released[i];
+                        releasetime[i-1] = releasetime[i];
+                    }
+                    released[N-1] = keycode;
+                    releasetime[N-1] = now;
+                }
+
+                xe++; num--;
             }
-            break;
-          default:;
         }
+        XRecordFreeData(id);
+    };
 
-        for(int i = 1; i < N; ++i){
-          pressed[i-1] = pressed[i];
-          presstime[i-1] = presstime[i];
-        }
-        pressed[N-1] = keycode;
-        presstime[N-1] = now;
-      }else if(type == KeyRelease){
-        switch(keycode){
-          case TRACKED_KEYCODE:
-            if(symbol_down){
-              XTestFakeKeyEvent(dpy, SYMBOL_KEYCODE, False, CurrentTime);
-              symbol_down = false;
-            }
-            if(mod_set){
-              XkbLockModifiers(dpy, XkbUseCoreKbd, MODIFIER_MASK, 0);
-              mod_set = false;
-            }
-            if(keycode == pressed[N-1]){
-              if(now-presstime[N-1] < SYMBOL_TIMEOUT){
-                XTestFakeKeyEvent(dpy, SYMBOL_KEYCODE, True,  CurrentTime);
-                XTestFakeKeyEvent(dpy, SYMBOL_KEYCODE, False, CurrentTime);
-              }
-            }
-            break;
-          default:;
-        }
-
-        for(int i = 1; i < N; ++i){
-          released[i-1] = released[i];
-          releasetime[i-1] = releasetime[i];
-        }
-        released[N-1] = keycode;
-        releasetime[N-1] = now;
-      }
-
-      xe++; num--;
-    }
-  }
-  XRecordFreeData(id);
+    return lambda_expression<decltype(to_return), XPointer, XRecordInterceptData *, void *>(to_return);
 }
+
 
 void error(const char* msg){
   std::cerr << "Error: " << msg << std::endl;
@@ -154,6 +171,15 @@ void error(const char* msg){
 }
 
 int main(int argn, char** argv){
+  Time symbol_timeout = 140;
+  Time symbol_hold_timeout = 200;
+  int modifier_delay = 5;
+  int modifier_mask = Mod3Mask;
+  int tracked_keycode = 65;
+  int symbol_keycode = 202;
+
+  const auto callback = create_callback(symbol_timeout, symbol_hold_timeout, modifier_delay, modifier_mask, tracked_keycode, symbol_keycode);
+
   XRecordRange* rr = XRecordAllocRange();
   if(!rr) error("Cannot allocate XRecordRange.");
   memset(rr, 0, sizeof(XRecordRange));
@@ -184,7 +210,7 @@ int main(int argn, char** argv){
       XRecordProcessReplies(cdpy);
     }else{
       delay = -1;
-      XkbLockModifiers(ddpy, XkbUseCoreKbd, MODIFIER_MASK, MODIFIER_MASK);
+      XkbLockModifiers(ddpy, XkbUseCoreKbd, modifier_mask, modifier_mask);
       mod_set = true;
     }
   }
