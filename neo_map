@@ -3,7 +3,7 @@ xkb_keymap {
 	xkb_types     { include "complete"	};
 	xkb_compat    { include "complete+caps(caps_lock)+misc(assign_shift_left_action)+level5(level5_lock)"	};
 	xkb_symbols   {
-      include "pc+de(neo_qwerty_base)+neo_lx(neo_lx)+inet(evdev)+capslock(ctrl_modifier)+shift(both_capslock)+level3(ralt_switch)+level5(rctrl_switch)"
+      include "pc+neo_lx(neo_lx)+inet(evdev)+capslock(ctrl_modifier)+shift(both_capslock)+level3(ralt_switch)+level5(rctrl_switch)"
 
       name[Group1]= "LX Neo Qwerty";
     };

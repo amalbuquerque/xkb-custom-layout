@@ -1,3 +1,16 @@
+// 2018/02/27 22:14:31, AA: Adapted from `level5.txt` from neolayout
+// However, we don't want this, because every Ctrl key binding wouldn't work as expected
+// using the level(switch) map, the left Control key temporarily
+// chooses the fifth shift level (until it is released).
+partial modifier_keys
+xkb_symbols "lctrl_switch" {
+  key <LCTL> {
+    type[Group1]="ONE_LEVEL",
+    symbols[Group1] = [ ISO_Level5_Shift ]
+    };
+  modifier_map Mod3   { ISO_Level5_Shift };
+};
+
 partial alphanumeric_keys
 xkb_symbols "neo_lx" {
     include "de(neo_qwerty_base)"
@@ -15,18 +28,18 @@ xkb_symbols "neo_lx" {
     // --------------------------------------------------------------
     key <TLDE> { [ dead_grave, dead_tilde,  NoSymbol,       NoSymbol,     grave,                asciitilde,     NoSymbol,    NoSymbol ] };
 
-    key <AE01> { [ 1,          exclam,      degree,         masculine,    onesuperior,          onesubscript,   notsign,     NoSymbol ] };
-    key <AE02> { [ 2,          at,          ordfeminine,    femalesymbol, twosuperior,          twosubscript,   logicalor,   NoSymbol ] };
-    key <AE03> { [ 3,          numbersign,  numerosign,     NoSymbol,     threesuperior,        threesubscript, logicaland,  NoSymbol ] };
-    key <AE04> { [ 4,          dollar,      NoSymbol,       NoSymbol,     U203A,                femalesymbol,   U22A5,       NoSymbol ] };
-    key <AE05> { [ 5,          percent,     EuroSign,       NoSymbol,     U2039,                malesymbol,     U2221,       NoSymbol ] };
-    key <AE06> { [ 6,          asciicircum, sterling,       NoSymbol,     cent,                 U26A5,          U2225,       NoSymbol ] };
-    key <AE07> { [ 7,          ampersand,   currency,       NoSymbol,     yen,                  U03F0,          rightarrow,  NoSymbol ] };
-    key <AE08> { [ 8,          asterisk,    Tab,            ISO_Left_Tab, singlelowquotemark,   U27E8,          U221E,       NoSymbol ] };
-    key <AE09> { [ 9,          parenleft,   KP_Divide,      KP_Divide,    leftsinglequotemark,  U27E9,          variation,   NoSymbol ] };
-    key <AE10> { [ 0,          parenright,  KP_Multiply,    KP_Multiply,  rightsinglequotemark, zerosubscript,  emptyset,    NoSymbol ] };
-    key <AE11> { [ minus,      underscore,  KP_Subtract,    KP_Subtract,  emdash,               U2011,          hyphen,      NoSymbol ] };
-    key <AE12> { [ equal,      plus,        dead_diaeresis, NoSymbol,     dead_abovering,       dead_dasia,     dead_macron, NoSymbol ] };
+    key <AE01> { [ 1,     exclam,          degree,         masculine,    onesuperior,          onesubscript,   notsign,     NoSymbol ] };
+    key <AE02> { [ 2,     at,              ordfeminine,    femalesymbol, twosuperior,          twosubscript,   logicalor,   NoSymbol ] };
+    key <AE03> { [ 3,     numbersign,      numerosign,     NoSymbol,     threesuperior,        threesubscript, logicaland,  NoSymbol ] };
+    key <AE04> { [ 4,     dollar,          NoSymbol,       NoSymbol,     U203A,                femalesymbol,   U22A5,       NoSymbol ] };
+    key <AE05> { [ 5,     percent,         EuroSign,       NoSymbol,     U2039,                malesymbol,     U2221,       NoSymbol ] };
+    key <AE06> { [ 6,     dead_circumflex, sterling,       NoSymbol,     cent,                 U26A5,          U2225,       NoSymbol ] };
+    key <AE07> { [ 7,     ampersand,       currency,       NoSymbol,     yen,                  U03F0,          rightarrow,  NoSymbol ] };
+    key <AE08> { [ 8,     asterisk,        Tab,            ISO_Left_Tab, singlelowquotemark,   U27E8,          U221E,       NoSymbol ] };
+    key <AE09> { [ 9,     parenleft,       KP_Divide,      KP_Divide,    leftsinglequotemark,  U27E9,          variation,   NoSymbol ] };
+    key <AE10> { [ 0,     parenright,      KP_Multiply,    KP_Multiply,  rightsinglequotemark, zerosubscript,  emptyset,    NoSymbol ] };
+    key <AE11> { [ minus, underscore,      KP_Subtract,    KP_Subtract,  emdash,               U2011,          hyphen,      NoSymbol ] };
+    key <AE12> { [ equal, plus,            dead_diaeresis, NoSymbol,     dead_abovering,       dead_dasia,     dead_macron, NoSymbol ] };
 
     // Top row
     // --------------------------------------------------------------
