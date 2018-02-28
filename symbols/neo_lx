@@ -13,7 +13,6 @@ xkb_symbols "lctrl_switch" {
 
 partial alphanumeric_keys
 xkb_symbols "neo_lx" {
-    include "de(neo_qwerty_base)"
 
     // Example:
     // key <XPTO> { [ None, Shift,   RAlt, Shift+RAlt,     SpaceFn, Shift+SpaceFn,     RAlt+SpaceFn, Shift+RAlt+SpaceFn      ] }
@@ -63,7 +62,7 @@ xkb_symbols "neo_lx" {
     key <AC02> { [ s,          S,        Greek_sigma,  Greek_SIGMA,  XF86AudioPrev,      XF86AudioPrev, questiondown, NoSymbol    ] };
     key <AC03> { [ d,          D,        Greek_delta,  Greek_DELTA,  XF86AudioNext,      XF86AudioNext, KP_Separator, NoSymbol    ] };
     key <AC04> { [ f,          F,        KP_9,         KP_9,         equal,              Greek_phi,     Greek_PHI,    NoSymbol    ] };
-    key <AC05> { [ g,          G,        asciitilde,   greater,      dead_tilde,         dead_tilde,    reek_gamma,   Greek_GAMMA ] };
+    key <AC05> { [ g,          G,        asciitilde,   greater,      dead_tilde,         dead_tilde,    Greek_gamma,  Greek_GAMMA ] };
     key <AC06> { [ h,          H,        less,         Greek_psi,    Left,               Left,          Greek_PSI,    NoSymbol    ] };
     key <AC07> { [ j,          J,        Greek_theta,  Greek_THETA,  Down,               Down,          semicolon,    NoSymbol    ] };
     key <AC08> { [ k,          K,        Greek_kappa,  exclamdown,   Up,                 Up,            multiply,     NoSymbol    ] };
