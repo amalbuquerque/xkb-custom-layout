@@ -1,3 +1,11 @@
+2019/02/28:
+===========
+
+To install and use the keymap every time, clone this repo and then run the `load_xkb_keymap_on_xinitrc.sh` script.
+
+It will add a line to the `~/.xinitrc` file that will load the current keymap with `xkbcomp`.
+
+
 UPDATE 2017/11/26:
 ==================
 
