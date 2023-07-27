@@ -22,6 +22,15 @@ To get the custom layout in place we should:
     ![step6](./images/step6.png)
     ![step7](./images/step7.png)
 
+Example of customizing the "tilde" key (TLDE):
+
+```
+    key <TLDE> { [    dead_grave, dead_tilde,      grave,       asciitilde       ] };
+```
+
+- Check the file `/usr/share/X11/xkb/keycodes/evdev` for the values on the left between `<...>`
+- Check the file `/usr/include/X11/keysymdef.h` for the values on the right-side (e.g. `dead_grave`)
+
 2019/02/28:
 ===========
 
