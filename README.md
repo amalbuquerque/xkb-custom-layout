@@ -1,3 +1,27 @@
+2023-07-27:
+==========
+
+Configuring Ubuntu 22.04.2 LTS (Jammy) I noticed the old way of setting the layout with xkbcomp (check the `amalbuquerque/dotfiles/lxlayout.sh`) doesn't work with GNOME on Wayland.
+
+To get the custom layout in place we should:
+
+- Use the GNOME settings to select the "English (intl., with AltGr dead keys)" as the only keyboard layout
+- Use the `create_xkb_customization.sh` script to create the `~/.config/xkb` folder structure and symlink the `symbols/xkb-customization-for-accents`
+- Log off and login again to ensure the GNOME settings "see" the customization
+- Use the GNOME settings to select the "custom" layout
+    * You need to pick "Other" and inside it, select "A user-defined custom layout" (check the pictures below)
+
+    ![step1](./images/step1.png)
+    ![step2](./images/step2.png)
+    ![step3](./images/step3.png)
+    ![step4](./images/step4.png)
+    ![step5](./images/step5.png)
+
+- Select the custom layout
+
+    ![step6](./images/step6.png)
+    ![step7](./images/step7.png)
+
 2019/02/28:
 ===========
 

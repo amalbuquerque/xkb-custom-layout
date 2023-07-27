@@ -1,0 +1,27 @@
+default partial alphanumeric_keys
+xkb_symbols "accents" {
+
+    // Example:
+    // key <XPTO> { [ None,       Shift,           RAlt,        Shift+RAlt       ] }
+
+    key <AE06> { [    6,          dead_circumflex, sterling,    cent             ] };
+
+    key <TLDE> { [    dead_grave, dead_tilde,      grave,       asciitilde       ] };
+    key <AD05> { [    t,          T,               grave,       dead_grave       ] };
+    key <AC05> { [    g,          G,               asciitilde,  dead_tilde       ] };
+    key <AB05> { [    b,          B,               asciicircum, dead_circumflex  ] };
+};
+
+xkb_symbols "macros" {
+
+    // Example:
+    // key <XPTO> { [ None,       Shift,           RAlt,        Shift+RAlt       ] }
+
+    // Accents
+    key <AE06> { [    6,          dead_circumflex, sterling,    cent             ] };
+
+    key <TLDE> { [    dead_grave, dead_tilde,      grave,       asciitilde       ] };
+    key <AD05> { [    t,          T,               grave,       dead_grave       ] };
+    key <AC05> { [    g,          G,               asciitilde,  dead_tilde       ] };
+    key <AB05> { [    b,          B,               asciicircum, dead_circumflex  ] };
+};
