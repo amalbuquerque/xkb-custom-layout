@@ -10,4 +10,7 @@ xkb_symbols "accents" {
     key <AD05> { [    t,          T,               grave,       dead_grave       ] };
     key <AC05> { [    g,          G,               asciitilde,  dead_tilde       ] };
     key <AB05> { [    b,          B,               asciicircum, dead_circumflex  ] };
+
+    // for the thinkpad, the PrintScreen between AltGr and Right Ctrl isn't that comfortable
+    key <PRSC> { [ Super_R ] };
 };
